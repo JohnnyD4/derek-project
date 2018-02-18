@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { Provider } from 'mobx-react';
 
+// import store from './src/mobx';
 import Home from './src/components/menu/home';
 import DetailPage from './src/components/feature/detailPage';
 
@@ -19,7 +21,11 @@ export default class App extends React.Component {
       initialRouteName: 'Home',
     });
     return (
-      <RootStack />
+      // <Provider
+      //   root={store.RootStore}
+      // >
+        <RootStack />
+      // </Provider>
     );
   }
 }

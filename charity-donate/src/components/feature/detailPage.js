@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { inject } from 'mobx-react';
 
+// @inject('root')
 export default class DetailPage extends React.Component {
   constructor() {
     super();

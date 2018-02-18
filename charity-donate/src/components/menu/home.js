@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import DetailPage from '../feature/detailPage';
+import { inject } from 'mobx-react';
 
+// @inject('root')
 export default class Home extends React.Component {
   constructor() {
     super();
@@ -12,7 +14,7 @@ export default class Home extends React.Component {
   showDetailPage(id) {
     // this.setState({ id: 1 });
     console.log(id);
-    // this.props.navigation.push('Detail', {charityId: this.state.id});
+    this.props.navigation.push('Detail', {charityId: this.state.id});
     // this.props.screenProps
   }
 
