@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import DetailPage from '../feature/detailPage';
 import { inject } from 'mobx-react';
 
-// @inject('root')
+@inject('root')
 export default class Home extends React.Component {
   constructor() {
     super();
@@ -11,25 +11,35 @@ export default class Home extends React.Component {
     this.showDetailPage = this.showDetailPage.bind(this);
   }
 
-  showDetailPage(id) {
-    // this.setState({ id: 1 });
-    console.log(id);
-    this.props.navigation.push('Detail', {charityId: this.state.id});
-    // this.props.screenProps
+  componentWillMount() {
+
+  }
+
+  showDetailPage(charity) {
+    this.props.navigation.push('Detail', {charity});
   }
 
   render() {
+    console.log(this.props.root);
+    const charityList = this.props.root.listPage.list.map(charity => (
+      <View style={styles.list}>
+        <Button
+          onPress={() => this.showDetailPage(charity)}
+          id={charity.id}
+          title={charity.title}
+          description={charity.description}
+          url={charity.url}
+        />
+      </View>  
+  ));
+
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>Donate to a Charity!</Text>
         </View>
         <View style={styles.body}>
-          <Button
-            onPress={this.showDetailPage}
-            title='Go to charity'
-            id='1'
-          />
+          {charityList}
         </View>
       </View>
     );

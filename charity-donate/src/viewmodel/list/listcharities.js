@@ -2,7 +2,7 @@ import { observable, action, computed } from 'mobx';
 
 export default class CharityListViewModel {
 	@computed
-	get charity() {
+	get list() {
 		return [
 			{
 				id: '1',

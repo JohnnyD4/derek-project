@@ -1,9 +1,10 @@
 import { observable, action, computed } from 'mobx';
-import ViewModels from '../viewmodel';
+import CharityDetailViewModel from '../viewmodel/detail/detailViewModel';
+import CharityListViewModel from '../viewmodel/list/listcharities';
 
 export default class RootStore {
 	constructor() {
-		this.detailPage = new ViewModels.CharityDetailViewModel();
-		this.listPage = new ViewModels.CharityListViewModel();
+		this.detailPage = new CharityDetailViewModel();
+		this.listPage = new CharityListViewModel();
 	}
 }
